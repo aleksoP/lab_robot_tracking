@@ -1,0 +1,29 @@
+# Fusion node parameters for single_camera_tag_to_robot_pose_node.
+
+/single_camera_tag_to_robot_pose_node:
+  ros__parameters:
+    # Input
+    detections_topic: /cam_1/detections
+
+    # Camera identity (key in camera_extrinsics.yaml)
+    camera_id: cam_1
+    # TF frame published by usb_cam for the camera optical axis
+    camera_frame: cam_1_optical_frame
+
+    # Tag being tracked
+    tag_id: 10
+    # TF child frame name apriltag_ros will publish for this tag (matches tags.yaml tag.frames)
+    tag_frame: tag10
+
+    # Robot being tracked (key in robots.yaml)
+    robot_id: roxi_1
+
+    # World frame (parent of camera extrinsics)
+    world_frame: lab_map
+
+    # Whether to broadcast lab_map -> roxi_1/gt_base_link via TF
+    publish_tf: true
+
+    # Diagonal covariance values (m² for position, rad² for orientation)
+    position_variance: 0.01
+    orientation_variance: 0.01

@@ -1,0 +1,20 @@
+# Camera extrinsics: T_lab_cam for each camera.
+# Defines the pose of each camera's optical frame in the lab_map world frame.
+# translation: [x, y, z] in metres
+# rotation_quat_xyzw: [x, y, z, w] quaternion (ROS convention)
+#
+# PLACEHOLDER VALUES – replace with calibrated extrinsics.
+# A camera mounted ~2 m above the floor looking straight down uses approximately:
+#   translation: measured position in lab_map
+#   rotation: 90° around X (optical frame pointing down)
+#
+# Measurement method: see docs/calibration_workflow.md
+
+cam_1:
+  parent_frame: lab_map
+  child_frame: cam_1_optical_frame
+  transform:
+    # Placeholder: camera at origin, pointing straight down.
+    translation: [0.0, 0.0, 2.0]
+    # 90° rotation about X: optical +Z points toward -Z of lab_map (down)
+    rotation_quat_xyzw: [0.7071068, 0.0, 0.0, 0.7071068]

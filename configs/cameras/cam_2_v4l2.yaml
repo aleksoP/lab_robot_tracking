@@ -1,0 +1,24 @@
+# v4l2_camera node parameters for cam_2.
+
+/**:
+  ros__parameters:
+    video_device: /dev/video2
+    image_size: [1280, 720]
+    pixel_format: YUYV
+    output_encoding: rgb8
+    camera_frame_id: cam_2_optical_frame
+    camera_name: cam_2
+    camera_info_url: ''
+    # Target runtime is 30 FPS. Jazzy v4l2_camera on this system does not expose
+    # a time_per_frame parameter, so frame rate must be validated empirically.
+    # Preferred final multi-camera mode after validation:
+    #   image_size: [1920, 1080]
+    #   pixel_format: MJPG
+    #   target FPS: 30
+    white_balance_automatic: false
+    white_balance_temperature: 4600
+    focus_automatic_continuous: false
+    focus_absolute: 68
+    auto_exposure: 1
+    exposure_time_absolute: 167
+    exposure_dynamic_framerate: false

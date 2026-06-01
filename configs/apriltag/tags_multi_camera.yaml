@@ -1,0 +1,28 @@
+# apriltag_ros parameters for the multi-camera tracker scaffold.
+#
+# Important:
+# - The central tracker consumes AprilTagDetectionArray messages directly.
+# - It does not use apriltag_ros tag TF frames as tracking input.
+# - Pose estimation is disabled here to avoid global tag TF collisions when
+#   multiple cameras observe the same physical tag.
+
+/**:
+  ros__parameters:
+    image_transport: raw
+    family: 36h11
+    size: 0.265
+    max_hamming: 0
+    pose_estimation_method: ""
+
+    detector:
+      threads: 2
+      decimate: 1.0
+      blur: 0.0
+      refine: true
+      sharpening: 0.25
+      debug: false
+
+    tag:
+      ids: [10, 20]
+      frames: [tag10, tag20]
+      sizes: [0.25, 0.25]

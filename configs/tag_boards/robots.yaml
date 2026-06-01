@@ -1,0 +1,19 @@
+# Robot tag-board definitions.
+# T_base_tag: pose of the AprilTag in the robot's base_link frame.
+# translation: [x, y, z] in metres
+# rotation_quat_xyzw: [x, y, z, w]  (ROS convention)
+#
+# PLACEHOLDER VALUES – measure the tag position on the physical robot.
+# Place a ruler from the base_link origin to the tag centre and record x, y, z.
+# Tag normal (z-axis) should face the camera, i.e., upward when the robot is on the floor.
+
+roxi_1:
+  tags:
+    - id: 10
+      family: tag36h11
+      size: 0.18          # tag edge length in metres
+      transform:
+        # Placeholder: tag mounted flat on top of robot, centred, 10 cm above base_link.
+        translation: [0.0, 0.0, 0.10]
+        # Tag z-axis points up in robot frame → identity rotation.
+        rotation_quat_xyzw: [0.0, 0.0, 0.0, 1.0]

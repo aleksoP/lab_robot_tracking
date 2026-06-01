@@ -1,0 +1,5 @@
+tracker:
+  stale_timeout_sec: 0.25
+  publish_tf: true
+  publish_odom: true
+  pose_covariance_diagonal: [0.0004, 0.0004, 0.01, 0.01, 0.01, 0.0025]

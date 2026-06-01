@@ -1,0 +1,36 @@
+# v4l2_camera node parameters for cam_1.
+# v4l2_camera uses a dedicated capture thread (blocking poll) rather than a wall timer,
+# which gives reliable 30 fps from USB UVC cameras.
+
+/**:
+  ros__parameters:
+    video_device: /dev/video0
+    image_size: [1280, 720]
+    pixel_format: YUYV
+    output_encoding: rgb8
+    camera_frame_id: cam_1_optical_frame
+    camera_name: cam_1
+    # camera_only.launch.py and single_camera_tracking.launch.py override this
+    # to the package-installed calibration file for the selected camera_id.
+    camera_info_url: ''
+    # Target runtime is 30 FPS. Jazzy v4l2_camera on this system does not expose
+    # a time_per_frame parameter, so frame rate must be validated empirically.
+    # Preferred final multi-camera mode after bandwidth and CPU validation:
+    #   image_size: [1920, 1080]
+    #   pixel_format: MJPG
+    #   target FPS: 30
+    # Keep the driver from restoring camera defaults after the pre-launch
+    # v4l2-ctl script has already placed the device into manual modes.
+    white_balance_automatic: false
+    white_balance_temperature: 4600
+    focus_automatic_continuous: false
+    focus_absolute: 68
+    auto_exposure: 1
+    # 167 ~= 16.7 ms. This is a better 30 FPS baseline for bright indoor lab
+    # lighting than 625 (~62.5 ms), which can overexpose and flicker badly.
+    exposure_time_absolute: 100
+    exposure_dynamic_framerate: false
+
+    gain: 64
+    # Do not force power_line_frequency here. This camera/driver combination
+    # advertises the control but rejects value 2 (60 Hz) at runtime.

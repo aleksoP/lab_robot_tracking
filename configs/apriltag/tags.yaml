@@ -1,0 +1,29 @@
+# apriltag_ros node parameters for the legacy single-camera prototype.
+# Loaded by the apriltag_node at launch.
+# See: https://github.com/christianrauch/apriltag_ros
+#
+# This file leaves pose estimation enabled so the deprecated prototype can use
+# camera -> tag TF. The multi-camera tracker scaffold must not use those tag TF
+# frames; it uses tags_multi_camera.yaml instead and consumes detections only.
+
+/**:
+  ros__parameters:
+    image_transport: raw
+    family: 36h11
+    size: 0.265            # default tag edge size in metres (overridden per-tag below)
+    max_hamming: 0
+    pose_estimation_method: pnp   # legacy prototype only
+
+    detector:
+      threads: 2
+      decimate: 1.0       # quality-first: keep full image resolution for better corner localization
+      blur: 0.0
+      refine: true
+      sharpening: 0.25
+      debug: false
+
+    # Tracked tags: must list every tag expected in the scene.
+    tag:
+      ids:    [10]
+      frames: [tag10]     # TF child frame name → cam_1_optical_frame -> tag10
+      sizes:  [0.265]

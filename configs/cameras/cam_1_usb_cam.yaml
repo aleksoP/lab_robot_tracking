@@ -1,0 +1,19 @@
+# usb_cam node parameters for cam_1 (/dev/video0).
+# Node is launched as name=cam_1 in namespace=cam_1, so the full node path is /cam_1/cam_1.
+
+/**:
+  ros__parameters:
+    video_device: /dev/video0
+    image_width: 1280
+    image_height: 720
+    framerate: 30.0
+    pixel_format: yuyv2rgb        # 1280×720 YUYV→RGB fits easily in the 33 ms timer budget
+    camera_name: cam_1
+    # Point to a calibration file once the camera is calibrated:
+    #   camera_info_url: "file:///path/to/cam_1_calibration.yaml"
+    # Until then pose estimates from apriltag_ros will be unreliable.
+    camera_info_url: ""
+    frame_id: cam_1_optical_frame
+    brightness: -1
+    contrast: -1
+    saturation: -1

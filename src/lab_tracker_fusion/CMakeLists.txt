@@ -5,20 +5,31 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-# find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
+find_package(ament_cmake_python REQUIRED)
+
+# Install Python executable nodes into lib/<package> so `ros2 run` finds them.
+install(PROGRAMS
+  scripts/single_camera_tag_to_robot_pose_node.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME single_camera_tag_to_robot_pose_node
+)
+
+install(PROGRAMS
+  scripts/multi_camera_tracker_node.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME multi_camera_tracker_node
+)
+
+# Install config files from the workspace-root configs/ directory
+# (two levels up from this package: src/lab_tracker_fusion/ → workspace root).
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../../configs/
+  DESTINATION share/${PROJECT_NAME}/configs
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
-  # the following line skips the linter which checks for copyrights
-  # comment the line when a copyright and license is added to all source files
   set(ament_cmake_copyright_FOUND TRUE)
-  # the following line skips cpplint (only works in a git repo)
-  # comment the line when this package is in a git repo and when
-  # a copyright and license is added to all source files
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()

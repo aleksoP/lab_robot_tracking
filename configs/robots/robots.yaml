@@ -1,0 +1,21 @@
+robots:
+  roxi_1:
+    base_frame: roxi_1/base_link
+    gt_frame: roxi_1/gt_base_link
+    tags:
+      10:
+        size_m: 0.25
+        base_T_tag:
+          translation_xyz_m: [0.0, 0.0, 0.10]
+          rotation_rpy_rad: [0.0, 0.0, 0.0]
+          placeholder: true
+  roxi_2:
+    base_frame: roxi_2/base_link
+    gt_frame: roxi_2/gt_base_link
+    tags:
+      20:
+        size_m: 0.25
+        base_T_tag:
+          translation_xyz_m: [0.0, 0.0, 0.10]
+          rotation_rpy_rad: [0.0, 0.0, 0.0]
+          placeholder: true

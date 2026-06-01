@@ -1,0 +1,29 @@
+lab:
+  width_m: 8.8
+  height_m: 5.0
+
+tracking:
+  height_to_tag_plane_m: 1.885
+  note: >
+    The 3 x 2 ceiling layout is intended for 6 cameras covering the lab floor.
+    Real calibrated intrinsics must be used to verify overlap at the tag plane.
+
+cameras:
+  cam_1: {x_m: 1.47, y_m: 1.35}
+  cam_2: {x_m: 4.40, y_m: 1.35}
+  cam_3: {x_m: 7.33, y_m: 1.35}
+  cam_4: {x_m: 1.47, y_m: 3.65}
+  cam_5: {x_m: 4.40, y_m: 3.65}
+  cam_6: {x_m: 7.33, y_m: 3.65}
+
+spec_sheet_fov_deg:
+  horizontal: 82.0
+  vertical: 66.0
+
+expected_footprint_at_tag_plane_m:
+  width: 3.29
+  height: 2.45
+
+warnings:
+  - vertical overlap is tight
+  - real camera calibration is required before trusting overlap estimates

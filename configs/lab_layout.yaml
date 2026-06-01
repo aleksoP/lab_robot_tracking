@@ -1,0 +1,10 @@
+lab_frame: lab_map
+lab_size_m: [8.8, 5.0]
+camera_to_tag_plane_m: 1.885
+cameras:
+  - cam_1
+  - cam_2
+  - cam_3
+  - cam_4
+  - cam_5
+  - cam_6

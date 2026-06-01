@@ -1,0 +1,32 @@
+# Camera calibration for cam_1.
+# PLACEHOLDER – replace with output from `ros2 run camera_calibration cameracalibrator`.
+# Without valid intrinsics, apriltag_ros pose estimates will be unreliable.
+#
+# ROS camera_info YAML format (used by camera_calibration_parsers).
+image_width: 1280
+image_height: 720
+camera_name: usb_camera3:_usb_camera3
+camera_matrix:
+  rows: 3
+  cols: 3
+  # fx  0  cx        fy  0  cy  (placeholder – replace with real calibration)
+  data: [640.0, 0.0, 640.0,
+          0.0, 640.0, 360.0,
+          0.0,   0.0,   1.0]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [0.0, 0.0, 0.0, 0.0, 0.0]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1.0, 0.0, 0.0,
+         0.0, 1.0, 0.0,
+         0.0, 0.0, 1.0]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [640.0, 0.0, 640.0, 0.0,
+          0.0, 640.0, 360.0, 0.0,
+          0.0,   0.0,   1.0, 0.0]

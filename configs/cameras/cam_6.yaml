@@ -1,0 +1,12 @@
+camera_id: cam_6
+frame_id: cam_6_optical_frame
+detections_topic: /cam_6/detections
+image_topic: /cam_6/image_raw
+camera_info_topic: /cam_6/camera_info
+calibration_file: configs/cameras/cam_6_calibration.yaml
+extrinsic:
+  parent_frame: lab_map
+  child_frame: cam_6_optical_frame
+  translation_xyz_m: [0.0, 0.0, 2.0]
+  rotation_rpy_rad: [1.57079632679, 0.0, 0.0]
+  placeholder: true
